@@ -1,14 +1,16 @@
 <template>
-  <div id="app">
-    <div class="header">
-      i am header!
+  <div>
+    <v-header></v-header>
+    <div class="tab border-1px">
+      <div class="tab-item">
+        <a v-link="{path:'/goods'}">商品</a>
+        </div>
+      <div class="tab-item">
+        <a v-link="{path:'/ratings'}">评论</a></div>
+      <div class="tab-item">
+        <a v-link="{path:'/seller'}">商家</a></div>
     </div>
-    <div class="tab">
-      i am tab!
-    </div>
-    <div class="content">
-      i am content!
-    </div>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -16,34 +18,28 @@
 import Header from './components/header/header.vue';
 export default {
   components: {
-    Header
+    'v-header': Header
   }
 };
 </script>
 
-<style>
-html {
-  height: 100%;
-}
+<style lang="stylus" rel="stylesheet/stylus">
+  @import "./common/stylus/mixin.styl"
 
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
-#app {
-  color: #2c3e50;
-  margin-top: -100px;
-  max-width: 600px;
-  font-family: Source Sans Pro, Helvetica, sans-serif;
-  text-align: center;
-}
-
-#app a {
-  color: #42b983;
-  text-decoration: none;
-}
+  .tab
+    display:flex
+    width: 100%
+    height:40px
+    line-height: 40px
+    border-1px(rgba(7,17,27,0.1))
+    .tab-item
+      flex: 1
+      table-align:center
+      & > a
+        display: block
+        font-size: 14px
+        color: rgb(77,85,93)
+        &.active
+          color: rgb(240,20,20)
 
 </style>
