@@ -14,7 +14,10 @@ Vue.use(VueResource);
 
 let app = Vue.extend(App);
 let router = new VueRouter({
-  linkActiveClass: 'active'
+  linkActiveClass: 'active',
+  hashbang: false,
+  history: true,
+  transitionOnLoad: true
 });
 
 router.map({
